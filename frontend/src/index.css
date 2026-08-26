@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { font-family: Inter, ui-sans-serif, system-ui, sans-serif; color: #e7eef8; background: #07111f; font-synthesis: none; }
+* { box-sizing: border-box; }
+html { min-width: 320px; background: #07111f; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button, input { font: inherit; }
+button { -webkit-tap-highlight-color: transparent; }
+
+.app-bg {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(14, 165, 233, .11), transparent 31rem),
+    radial-gradient(circle at 90% 15%, rgba(45, 212, 191, .08), transparent 28rem),
+    linear-gradient(180deg, #07111f 0%, #081321 100%);
+}
+.app-bg::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none; opacity: .22;
+  background-image: linear-gradient(rgba(148,163,184,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,.04) 1px, transparent 1px);
+  background-size: 44px 44px; mask-image: linear-gradient(to bottom, black, transparent 70%);
+}
+.glass { background: rgba(12, 24, 41, .76); border: 1px solid rgba(148, 163, 184, .13); box-shadow: 0 22px 70px rgba(0,0,0,.22); backdrop-filter: blur(18px); }
+.fade-up { animation: fadeUp .65s cubic-bezier(.2,.8,.2,1) both; }
+.fade-in { animation: fadeIn .5s ease both; }
+.delay-1 { animation-delay: .12s; }
+.delay-2 { animation-delay: .24s; }
+.delay-3 { animation-delay: .36s; }
+.scan-line { animation: scan 2.4s ease-in-out infinite; }
+.pulse-soft { animation: pulseSoft 2s ease-in-out infinite; }
+.bar-fill { animation: growBar 1s cubic-bezier(.2,.8,.2,1) both; transform-origin: left; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(18px) } to { opacity: 1; transform: translateY(0) } }
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+@keyframes scan { 0%,100% { transform: translateY(0); opacity: .3 } 50% { transform: translateY(128px); opacity: 1 } }
+@keyframes pulseSoft { 0%,100% { box-shadow: 0 0 0 0 rgba(34,211,238,.2) } 50% { box-shadow: 0 0 0 8px rgba(34,211,238,0) } }
+@keyframes growBar { from { transform: scaleX(0) } to { transform: scaleX(1) } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; } }
